@@ -1,0 +1,8 @@
+@startuml all
+hide empty members
+hide private members
+
+!include 0001_encoder_main.pu
+!include 0002_filter_main.pu
+
+@enduml

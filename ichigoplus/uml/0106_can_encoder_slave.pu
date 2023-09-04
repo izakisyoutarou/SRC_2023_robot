@@ -1,0 +1,31 @@
+@startuml can_encoder_slave
+hide empty members
+
+namespace encoder {
+class CanEncoderSlave {
+	- number : int
+	- id : int
+	- Mode : int
+	- CountMemory : int
+	- Setflag : bool
+	- OrderFlag : bool
+	- encValue : int
+	- frequency : unsigned short
+	- lastGetTimeData : int64_t
+	- time : int64_t
+
+	+ CanEncoderSlave(Can &can, int number, int dipNumber, EncoderCount &enc)
+	+ setup() : int
+	+ cycle() : void
+	+ count() : int
+	+ lastReadTime() : long
+	+ canRead(int id, int number, unsigned char data[8]) : int
+	+ canId(int id) : int
+}
+}
+abstract can.CanHandler
+abstract encoder.EncoderCount
+encoder.CanEncoderSlave -up-|> can.CanHandler
+encoder.CanEncoderSlave "0..1" o-- "1" encoder.EncoderCount
+
+@enduml

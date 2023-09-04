@@ -1,0 +1,15 @@
+@startuml encoder
+hide empty members
+
+namespace encoder {
+abstract Encoder {
+	+ Encoder()
+	+ {abstract} ~Encoder()
+	+ {abstract} setup() : int
+	+ {abstract} cycle() : void
+	+ {abstract} rev(bool rev) : void
+	+ {abstract} radian() : float 
+}
+}
+
+@enduml

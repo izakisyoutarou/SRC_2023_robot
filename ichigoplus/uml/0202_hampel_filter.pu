@@ -1,0 +1,26 @@
+@startuml hampel_filter
+hide empty members
+
+namespace filter {
+class HampelFilter<window_size: int = 11, T_I: Class = float, T: Class = T_I> {
+	- window : std::array<T, window_size>
+	- sortedWindow : std::array<T, window_size>
+	- insert_index : unsigned int
+	- size : unsigned int
+	- nsigma : T
+	- is_move : bool
+	- ave : T
+	- M2 : T
+	- variance : T
+
+	+ HampelFilter(T nsigma = 2.8f)
+	+ configrue(T nsigme) : void
+	+ filter(T_I value) : T_I
+	+ reset() : void
+	+ operaotr()(T_I value) : T_I
+}
+}
+abstract filter.Filter
+filter.HampelFilter -up-|> filter.Filter
+
+@enduml

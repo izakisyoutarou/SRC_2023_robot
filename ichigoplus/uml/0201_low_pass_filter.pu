@@ -1,0 +1,22 @@
+@startuml low_pass_filter
+hide empty members
+
+namespace filter {
+class LowPassFilter<T_I: Class = float, T: Class = T_I> {
+	- a : T
+	- b : T
+	- old_in : T
+	- old_out : T
+	- is_first : bool
+	
+	+ LowPassFilter(T sample_time = 2.f, T constant_time = 0.f)
+	+ filter(T_I value) : T_I
+	+ configure(float sample_time, float constant_time) : void
+	+ reset() : void
+	+ operator()(T_I value) : T_I
+}
+}
+abstract filter.Filter
+filter.LowPassFilter -up-|> filter.Filter
+
+@enduml

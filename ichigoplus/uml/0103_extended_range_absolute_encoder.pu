@@ -1,0 +1,22 @@
+@startuml extended_range_absolute_encoder
+hide empty members
+
+namespace encoder {
+class ExtendedRangeAbsoluteEncoder {
+	- is_reverse : bool
+	- radian_ : float
+	- old_enc_radian : float
+	- rotation_count : int
+
+	+ ExtendedRangeAbsoluteEncoder(Encoder &enc)
+	+ setup() : int
+	+ cycle() : void
+	+ rev(bool rev) : void
+	+ radian() : float
+}
+}
+abstract encoder.Encoder
+encoder.ExtendedRangeAbsoluteEncoder -up-|> encoder.Encoder
+encoder.ExtendedRangeAbsoluteEncoder "0..1" o-- "1" encoder.Encoder
+
+@enduml

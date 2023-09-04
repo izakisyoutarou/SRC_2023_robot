@@ -1,0 +1,9 @@
+@startuml filter_main
+hide empty members
+hide private members
+
+!include 0200_filter.pu
+!include 0201_low_pass_filter.pu
+!include 0202_hampel_filter.pu
+
+@enduml

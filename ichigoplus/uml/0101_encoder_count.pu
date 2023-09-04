@@ -1,0 +1,15 @@
+@startuml encoder_count
+hide empty members
+
+namespace encoder {
+abstract EncoderCount {
+	+ EncoderCount()
+	+ {abstract} ~EncoderCount()
+	+ {abstract} cpr(float cpr) : void
+	+ {abstract} count() : int
+}
+}
+abstract encoder.Encoder
+encoder.EncoderCount -up-|> encoder.Encoder
+
+@enduml

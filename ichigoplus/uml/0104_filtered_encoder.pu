@@ -1,0 +1,25 @@
+@startuml filtered_encoder
+hide empty members
+
+namespace encoder {
+class FilteredEncoder {
+	- is_reverse : bool
+	- radian_ : float
+
+	+ FilteredEncoder(Encoder &enc)
+	+ setup() : int
+	+ cylce() : void
+	+ rev(bool rev) : void
+	+ radian() : float
+	+ addFilter(filter::Filter* filter)
+	+ addFilter(filter::Filter& filter)
+	+ addFilter(std::initializer<filter::Filter*> filters)
+}
+}
+abstract encoder.Encoder
+abstract filter.Filter
+encoder.FilteredEncoder -up-|> encoder.Encoder
+encoder.FilteredEncoder "0..1" o-- "1" encoder.Encoder
+encoder.FilteredEncoder "0..1" o-- "0..*" filter.Filter
+
+@enduml

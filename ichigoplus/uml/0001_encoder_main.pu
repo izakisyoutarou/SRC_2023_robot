@@ -1,0 +1,14 @@
+@startuml encoder_main
+hide empty members
+hide private members
+
+!include 0100_encoder.pu
+!include 0101_encoder_count.pu
+!include 0102_encx.pu
+!include 0103_extended_range_absolute_encoder.pu
+!include 0200_filter.pu
+!include 0104_filtered_encoder.pu
+!include 0105_can_encoder.pu
+!include 0106_can_encoder_slave.pu
+
+@enduml

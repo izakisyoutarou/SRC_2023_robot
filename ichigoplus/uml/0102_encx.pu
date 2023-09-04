@@ -1,0 +1,23 @@
+@startuml encx
+hide empty members
+
+namespace encoder {
+class EncX {
+	- cpr_ : int
+	- is_reverse : bool
+	- count_ : int
+	- radian_ : float
+
+	+ EncX()
+	+ setup() : int
+	+ cycle() : void
+	+ cpr(int cpr) : void
+	+ rev(bool rev) : void
+	+ count() : int
+	+ radian() : float
+}
+}
+abstract encoder.EncoderCount
+encoder.EncX -up-|> encoder.EncoderCount
+
+@enduml

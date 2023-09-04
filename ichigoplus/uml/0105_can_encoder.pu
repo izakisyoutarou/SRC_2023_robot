@@ -1,0 +1,36 @@
+@startuml can_encoder
+hide empty members
+
+namespace encoder {
+class CanEncoder {
+	- number : int
+	- encValue : int
+	- frequency : unsigned short
+	- lastGetTimeData : int64_t
+	- id : int
+	- cpr_ : int
+	- is_reverse: bool
+	- count_ : int
+	- radian : float
+	
+	+ CanEncoder(Can &enc, int number, int cpr)
+	+ CanEncoder(Can &enc, int number, unsigned short frequencyMillisArg, int cpr)
+	+ setup() : int
+	+ cycle() : PaleVioletRed
+	+ rev(boolf rev) : void
+	+ radian() : float
+	+ cpr(int cpr) : void
+	+ count() : int
+	+ lastReadTime() : int64_t
+	+ canRead(int id, int number, unsinged char data[8]) : int
+	+ canId(int id) : int
+}
+}
+abstract encoder.EncoderCount
+abstract can.Can
+abstract can.CanHandler
+encoder.CanEncoder -up-|> encoder.EncoderCount
+encoder.CanEncoder -up-|> can.CanHandler
+encoder.CanEncoder "0..*" o-- "1" can.Can
+
+@enduml

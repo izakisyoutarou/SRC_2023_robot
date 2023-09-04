@@ -1,0 +1,14 @@
+@startuml filter
+hide empty members
+
+namespace filter {
+abstract Filter<T: Class = float> {
+	+ Filter()
+	+ {abstract} ~Filter()
+	+ {abstract} filter(T value) : T
+	+ {abstract} reset() : void
+	+ operator()(T value) : T 
+}
+}
+
+@enduml
